@@ -5,6 +5,9 @@ import { useContext , useEffect } from 'react';
 import { ProductsContext } from '../context/ProductContextProvider';
 import axios from 'axios';
 
+//Styles
+import styles from './ProductDetails.module.css';
+
 const ProductDetails = () => {
 
     const [datas , setDatas] = useState({});
@@ -24,15 +27,14 @@ const ProductDetails = () => {
     
 
     return (
-        <div>
-            <img src={image} alt='product' style={{width:"200px"}} />
-            <div>
+        <div className={styles.container}>
+            <img className={styles.image} src={image} alt='product' style={{width:"200px"}} />
+            <div className={styles.textContainer}>
                 <h3>{title}</h3>
-                <p>{description}</p>
-                <p><span>Category: </span>{category}</p>
-                <div>
-                    <span>{price} $</span>
-                    <br/>
+                <p className={styles.description}>{description}</p>
+                <p className={styles.category}><span>Category: </span>{category}</p>
+                <div className={styles.buttonContainer}>
+                    <span className={styles.price}>{price} $</span>
                     <Link to="/products" >Back to Shop</Link>
                 </div>
             </div>
